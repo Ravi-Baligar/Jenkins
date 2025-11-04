@@ -32,6 +32,11 @@ pipeline {
     stage('Build and Push Docker Image') {
       steps {
         script {
+          environment {
+            DOCKER_IMAGE = "ravi3423/ultimate-cicd:${BUILD_NUMBER}"
+            // DOCKERFILE_LOCATION = "java-maven-sonar-argocd-helm-k8s/spring-boot-app/Dockerfile"
+            REGISTRY_CREDENTIALS = credentials('docker-cred')
+          }
           sh '''
             apt-get update
             apt-get install -y docker.io
