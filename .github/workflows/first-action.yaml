@@ -1,6 +1,6 @@
 name: This simple github action
 
-on: [push]
+on: [ ]
 
 jobs:
   build:
